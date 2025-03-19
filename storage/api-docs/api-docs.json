@@ -1,0 +1,172 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Activity API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/shoes": {
+            "get": {
+                "tags": [
+                    "Shoes"
+                ],
+                "summary": "get list of shoes",
+                "operationId": "dd9b3221ca16c3fa4c61ff28ed095663",
+                "responses": {
+                    "200": {
+                        "description": "list of shoes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Shoes"
+                ],
+                "summary": "create new shoe",
+                "operationId": "fcc85e4062ca99962181a744a13383f8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "size",
+                                    "color",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "integer"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Shoe created"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/shoes/{id}": {
+            "get": {
+                "tags": [
+                    "Shoes"
+                ],
+                "summary": "show specified shoe",
+                "operationId": "124c9981b17bb17fb954a7f0b62432d3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shoe ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "shoe details"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Shoes"
+                ],
+                "summary": "Update shoe details",
+                "operationId": "07b58c5e8d483761b62d22b2d0b025af",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shoe ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "size",
+                                    "color",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "integer"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Shoe updated successfully"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Shoes"
+                ],
+                "summary": "Delete shoe",
+                "operationId": "6c2692c5f4ef1eae42592040b47b766b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shoe ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Shoe deleted"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Shoes",
+            "description": "API Endpoints for shoes"
+        }
+    ]
+}

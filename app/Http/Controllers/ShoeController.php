@@ -5,6 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Shoe;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Info(
+ *    title="Activity API",
+ *    version="1.0.0",
+ * )
+ * @OA\Tag(
+ *     name="Shoes",
+ *     description="API Endpoints for shoes"
+ * )
+ */
 class ShoeController extends Controller
 {
     /**
