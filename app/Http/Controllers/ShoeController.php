@@ -139,7 +139,25 @@ class ShoeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="/api/shoes/{id}",
+     *     summary="Delete shoe",
+     *     tags={"Shoes"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Shoe ID",
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Shoe deleted",
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error",
+     *     )
+     * )
      */
     public function destroy(Shoe $shoe)
     {
