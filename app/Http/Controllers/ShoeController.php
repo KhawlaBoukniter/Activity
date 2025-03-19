@@ -26,7 +26,29 @@ class ShoeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/shoes",
+     *     summary="create new shoe",
+     *     tags={"Shoes"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name","size","color","price"},
+     *             @OA\Property(property="name", type="string"),
+     *             @OA\Property(property="size", type="integer"),
+     *             @OA\Property(property="color", type="string"),
+     *             @OA\Property(property="price", type="number")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Shoe created",
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error",
+     *     )
+     * )
      */
     public function store(Request $request)
     {
