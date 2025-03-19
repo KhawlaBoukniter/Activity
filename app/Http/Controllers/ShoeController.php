@@ -8,7 +8,15 @@ use Illuminate\Http\Request;
 class ShoeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/shoes",
+     *     summary="get list of shoes",
+     *     tags={"Shoes"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="list of shoes",
+     *     )
+     * )
      */
     public function index()
     {
