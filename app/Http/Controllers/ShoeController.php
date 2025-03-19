@@ -90,7 +90,35 @@ class ShoeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="/api/shoes/{id}",
+     *     summary="Update shoe details",
+     *     tags={"Shoes"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Shoe ID",
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name","size","color","price"},
+     *             @OA\Property(property="name", type="string"),
+     *             @OA\Property(property="size", type="integer"),
+     *             @OA\Property(property="color", type="string"),
+     *             @OA\Property(property="price", type="number")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Shoe updated successfully",
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error",
+     *     )
+     * )
      */
     public function update(Request $request, Shoe $shoe)
     {
