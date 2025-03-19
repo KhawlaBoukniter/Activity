@@ -68,7 +68,21 @@ class ShoeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/shoes/{id}",
+     *     summary="show specified shoe",
+     *     tags={"Shoes"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Shoe ID",
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="shoe details",
+     *     )
+     * )
      */
     public function show(Shoe $shoe)
     {
